@@ -27,6 +27,11 @@ teacherController.updateTeacher = async (req, res) => {
         loginAttemps,
         timeOut
         } = req.body
+    
+        //validaciones
+        name = name?.trim()
+        email = email?.trim()
+
         //Valores requeridos
         if(!name || !email || !password) {
             return res.status(400).json({message: "Fields required"})
@@ -52,7 +57,7 @@ teacherController.updateTeacher = async (req, res) => {
             },
             {
                 new: true
-            }
+            },
         );
 
         if (!teacherUpdated) {

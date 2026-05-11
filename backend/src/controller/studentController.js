@@ -29,6 +29,11 @@ studentsController.updateStudent = async (req, res) => {
             loginAttempts,
             timeOut
         } = req.body
+
+        //validaciones
+        name = name?.trim()
+        email = email?.trim()
+
         //Valores requeridos
         if(!name || !email || !password) {
             return res.status(400).json({message: "Fields required"})
